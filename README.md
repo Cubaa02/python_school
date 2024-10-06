@@ -1,2 +1,1 @@
-# python_school
-hwhwhwhwhwhwhwhwhwhw
+"# projekt-python" 
