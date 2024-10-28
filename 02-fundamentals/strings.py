@@ -158,3 +158,45 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+
+
+#1 
+
+from datetime import datetime
+
+czech_date = "12. 10. 2020"
+
+cz_date_to_obj = datetime.strptime(czech_date, "%m. %d. %Y")
+obj_to_db_date = cz_date_to_obj.strftime("%Y-%m-%d")
+print(obj_to_db_date)
+
+#2 
+
+def snake_case(words):
+   return '_'.join(words.replace('-', ' ').lower().split())
+
+print(snake_case("This is snake case"))
+def camel_case(words):
+   to_camel_case = ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(words.replace('-', ' ').split()))
+   return to_camel_case
+print(camel_case("This is camel case"))
+
+#3 
+import random
+import string
+count_of_pswd = input("How many password do you want?")
+special_characters = '-/+*'
+def random_password():
+   for i in range(int(count_of_pswd)):
+      pswd = ''
+      for j in range(3):
+         pswd += random.choice(string.ascii_uppercase)
+      for j in range(3):
+         pswd += random.choice(string.ascii_lowercase)
+      pswd += random.choice(special_characters)
+      for j in range(3):
+         pswd += str(random.randint(0,10))
+   return pswd
+
+for i in range(int(count_of_pswd)):
+   print(f"Password no.{i+1}: {random_password()}")
