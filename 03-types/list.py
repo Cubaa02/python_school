@@ -325,3 +325,26 @@ print(f'\n*************************************\nCvičení 2\n******************
 # Záznamy budou seřazeny podle věku (sestupně).
 
 print(f'\n*************************************\nCvičení 3\n*************************************')
+
+#a
+persons.extend([('Jana', 30, 'žena'), 
+                ('Marie', 25, 'žena'), 
+                ('Petr', 35, 'muž'),
+                ('Jan', 45, 'muž')])
+
+#b 
+women = list(filter(lambda item: item[2] == 'žena', persons))
+print(women)
+
+women = [person for person in persons if person[2] == 'žena']
+print(women)
+
+#c
+ipeople = [person for person in persons if 'i' in person[0]]
+ipeople_sorted = sorted(ipeople, key=lambda x: x[1], reverse=True)
+
+csv_string = "Index;Name;Age;Gender\n"
+for index, person in enumerate(ipeople_sorted, start=1):
+    csv_string += f"{index};{person[0]};{person[1]};{person[2]}\n"
+
+print(csv_string)

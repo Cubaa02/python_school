@@ -94,3 +94,56 @@ child3          Linus               2011
 ---------------------------------------------
 Počet záznamů: 3
 '''
+
+# dictionary.py
+
+# a) Create a nested dictionary
+cars = {
+    "car1": {
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2010,
+        "features": ["Air Conditioning", "Power Steering", "Cruise Control"],
+        "owners": ("John Doe", "Jane Smith"),
+        "service_dates": {"2020-01-10", "2021-02-15", "2022-03-20"}
+    },
+    "car2": {
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2015,
+        "features": ["Bluetooth", "Backup Camera", "Heated Seats"],
+        "owners": ("Alice Johnson", "Bob Brown"),
+        "service_dates": {"2019-05-10", "2020-06-15", "2021-07-20"}
+    },
+    "car3": {
+        "brand": "Ford",
+        "model": "Focus",
+        "year": 2018,
+        "features": ["Navigation System", "Sunroof", "Leather Seats"],
+        "owners": ("Charlie Davis", "Dana White"),
+        "service_dates": {"2020-08-10", "2021-09-15", "2022-10-20"}
+    }
+}
+
+# b) Add a new element and remove an existing one
+cars["car4"] = {
+    "brand": "Chevrolet",
+    "model": "Malibu",
+    "year": 2020,
+    "features": ["Remote Start", "Blind Spot Monitoring", "Apple CarPlay"],
+    "owners": ("Eve Black", "Frank Green"),
+    "service_dates": {"2021-11-10", "2022-12-15"}
+}
+
+# Remove car1
+del cars["car1"]
+
+# c) Print the contents of the dictionary in a formatted table
+print("Slovník cars")
+print("---------------------------------------------")
+print("car             brand               year")
+print("---------------------------------------------")
+for car, details in cars.items():
+    print(f"{car:<15} {details['brand']:<20} {details['year']}")
+print("---------------------------------------------")
+print(f"Počet záznamů: {len(cars)}")
